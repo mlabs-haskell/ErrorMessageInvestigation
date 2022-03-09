@@ -23,3 +23,7 @@ When I talked to some of my team member about this, we floated having a StateT w
 12:19
 But in summary: if you can find a way to make the on-chain error messages be useful off-chain, that'd be a boon for plutustx
 ```
+## **Goal**
+ 
+Investivate the error function, and add a more informative error message function.
+
