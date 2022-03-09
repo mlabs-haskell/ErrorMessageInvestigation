@@ -27,3 +27,4 @@ But in summary: if you can find a way to make the on-chain error messages be use
  
 Investivate the error function, and add a more informative error message function.
 
+Improve from printf and trace functions.
