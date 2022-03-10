@@ -29,6 +29,8 @@ Investivate the error function, and add a more informative error message functio
 
 Improve from printf and trace functions.
 
+Indicate the file, function, and line number from which the error is called.
+
 ## **Restriction**
 
 Not modifying the plutus compiler.
