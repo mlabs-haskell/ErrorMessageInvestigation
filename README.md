@@ -34,3 +34,22 @@ Indicate the file, function, and line number from which the error is called.
 ## **Restriction**
 
 Not modifying the plutus compiler.
+
+## **GHC.Err**
+
+In the file
+https://hackage.haskell.org/package/base-4.16.0.0/docs/src/GHC.Exception.html
+
+We can see that there is a function called `prettyCallStackLines`.
+
+which has definition:
+
+```Haskell
+prettyCallStackLines :: CallStack -> [String]
+prettyCallStackLines cs = case getCallStack cs of
+  []  -> []
+  stk -> "CallStack (from HasCallStack):"
+       : map (("  " ++) . prettyCallSite) stk
+  where
+    prettyCallSite (f, loc) = f ++ ", called at " ++ prettySrcLoc loc
+```
