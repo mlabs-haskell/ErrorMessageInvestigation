@@ -37,19 +37,17 @@ Not modifying the plutus compiler.
 
 ## **GHC.Err**
 
-In the file
-https://hackage.haskell.org/package/base-4.16.0.0/docs/src/GHC.Exception.html
+By adding HasCallStack to each functions that may throw exception, GHC.Err can be used to annotate the error with the call stack.
 
-We can see that there is a function called `prettyCallStackLines`.
-
-which has definition:
-
-```Haskell
-prettyCallStackLines :: CallStack -> [String]
-prettyCallStackLines cs = case getCallStack cs of
-  []  -> []
-  stk -> "CallStack (from HasCallStack):"
-       : map (("  " ++) . prettyCallSite) stk
-  where
-    prettyCallSite (f, loc) = f ++ ", called at " ++ prettySrcLoc loc
+For example:
+```
+CallStack (from HasCallStack):
+  error, called at src/PlutusTx/Utils.hs:8:26 in plutus-tx-0.1.0.0-inplace:PlutusTx.Utils
+  mustBeReplaced, called at src/PlutusTx/Builtins/Internal.hs:78:9 in plutus-tx-0.1.0.0-inplace:PlutusTx.Builtins.Internal
+  error, called at src/PlutusTx/Builtins.hs:224:11 in plutus-tx-0.1.0.0-inplace:PlutusTx.Builtins
+  error, called at src/PlutusTx/Trace.hs:17:18 in plutus-tx-0.1.0.0-inplace:PlutusTx.Trace
+  traceError, called at src/PlutusTx/Ratio.hs:335:18 in plutus-tx-0.1.0.0-inplace:PlutusTx.Ratio
+  reduce, called at app/Main.hs:20:12 in main:Main
+  testFunc, called at app/Main.hs:34:11 in main:Main
+  main, called at app/Main.hs:32:1 in main:Main
 ```
