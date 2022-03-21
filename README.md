@@ -51,3 +51,7 @@ CallStack (from HasCallStack):
   testFunc, called at app/Main.hs:34:11 in main:Main
   main, called at app/Main.hs:32:1 in main:Main
 ```
+
+# **On-Chain code testing**
+
+To test if this is change is working with no issue for on-chain code. 
