@@ -35,7 +35,7 @@ Indicate the file, function, and line number from which the error is called.
 
 Not modifying the plutus compiler.
 
-## **GHC.Err**
+## **Final Solution**
 
 By adding HasCallStack to each functions that may throw exception, GHC.Err can be used to annotate the error with the call stack.
 
