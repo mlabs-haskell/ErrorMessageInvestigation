@@ -55,3 +55,11 @@ CallStack (from HasCallStack):
 # **On-Chain code testing**
 
 To test if this is change is working with no issue for on-chain code. 
+
+# **Purposed Solution Not Working**
+
+When running the test suites, the functions in PlutusTx.Ratio are not being able to compiled to Plutus on-chain codes.
+
+# **Summary**
+
+The valid solution for this issue is now expected to be complicated. The original solution of adding HasCallStack in front of each functions fails since PLC compiler does not support GHC.Types.Symbol translation. It requires modification of either the plutus compiler or adding decorations for functions in plutus-tx to display error messages in detail if the function in plutus-tx may throw an error when not passing appropriate arguments. Therefore, the final solution is left for future work.
